@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Progress</title>
+    <link rel="stylesheet" href="Goaltracker.css">
+</head>
+<body>
+    <div class="container">
+        <h2>View progress</h2>
+        <div id="milestones-container">
+            <h3>Milestones</h3>
+            <div id="milestones-list">
+         <h3>Select Milestones</h3>
+        <label><input type="checkbox" class="milestone-checkbox"> Milestone 1</label><br>
+        <label><input type="checkbox" class="milestone-checkbox"> Milestone 2</label><br>
+        <label><input type="checkbox" class="milestone-checkbox"> Milestone 3</label><br>
+            </div>
+            <button id="update-progress-btn">Update progress</button>
+        </div>
+        <div id="progress-bar-container">
+            <h3>Progress bar</h3>
+            <div id="progress-bar">
+                <div id="progress" style="width: 0%;"></div>
+            </div>
+            <p id="progress-text">0% complete</p>
+        </div>
+    </div>
+
+    <script src="Goaltracker.js"></script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Goaltracker.css"> <!-- Your custom styles -->
+    <!-- Include Heroicons for icons -->
+    <link href="https://cdn.jsdelivr.net/npm/@heroicons/react/outline.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <header class="bg-blue-500 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-white text-2xl font-bold">Goal Tracker</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="set-goals.html" class="text-white hover:text-gray-200">Set Goals</a></li>
+                    <li><a href="view-progress.html" class="text-white hover:text-gray-200">View Progress</a></li>
+                    <li><a href="achievements.html" class="text-white hover:text-gray-200">Achievements</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto my-8">
+        
+
+        <section class="my-8">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl font-bold mb-4">Set and Edit Goals</h2>
+                <form id="goal-form" class="mb-4">
+                    <div class="flex space-x-4">
+                        <input type="text" id="goal-input"
+                            class="w-64 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                            placeholder="Enter goal" required>
+                        <input type="date" id="due-date"
+                            class="w-48 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+                            required>
+                        <button type="submit"
+                            class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Set
+                            Goal</button>
+                    </div>
+                </form>
+                <div id="goal-list" class="space-y-4">
+                    <!-- Goals will be dynamically added here -->
+                </div>
+                <button id="edit-goals-btn"
+                    class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Edit
+                    Goals</button>
+            </div>
+        </section>
+
+        <section class="my-8">
+            <div class="container mx-auto px-4">
+                <h2 class="text-2xl font-bold mb-4">View Progress</h2>
+                <div id="milestones-container" class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4">Milestones</h3>
+                    <div id="milestones-list" class="space-y-2">
+                        <label><input type="checkbox" class="milestone-checkbox"> Milestone 1</label><br>
+                        <label><input type="checkbox" class="milestone-checkbox"> Milestone 2</label><br>
+                        <label><input type="checkbox" class="milestone-checkbox"> Milestone 3</label><br>
+                    </div>
+                    <button id="update-progress-btn"
+                        class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Update
+                        Progress</button>
+                </div>
+                <div id="progress-bar-container">
+                    <h3 class="text-xl font-semibold mb-4">Progress Bar</h3>
+                    <div id="progress-bar"
+                        class="w-full bg-gray-300 rounded-md overflow-hidden h-8 flex items-center">
+                        <div id="progress" class="bg-blue-500 h-full"></div>
+                    </div>
+                    <p id="progress-text" class="mt-2 text-lg font-medium">0% complete</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-blue-500 py-4 mt-8">
+        <div class="container mx-auto text-center text-white">
+            <p>&copy; 2024</p>
+            <div class="mt-4 flex justify-center space-x-4">
+                <!-- Social media icons -->
+                <a href="#" class="text-white hover:text-gray-200"><svg
+                        class="h-6 w-6 fill-current"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 0C5.373 0 0 5.373 0 12c0 4.991 3.882 9.083 8.793 9.437-.09-.794-.168-2.004.034-2.866.18-.78 1.175-4.97 1.68-6.072.168-.402.058-.548-.324-.548H9.75c-.5 0-.833.412-.917.917-.274 1.452-.543 3.66-.083 4.963.4 1.28 2.594 1.835 3.67 1.835 1.831 0 3.256-1.369 3.256-3.332 0-1.73-1.247-2.78-3.04-2.78-.566 0-1.173.243-1.445.45-.168.133-.4.232-.533.4-.35.367-.684.95-.684 1.684v2.717c0 .666-.084 1.333-.167 2 .083.166.458.333.625.25.75-.333 1.583-.542 2.458-.542 2.454 0 4.334 2.458 4.334 5.666 0 2.625-1.668 4.917-3.975 4.917-2.75 0-4.406-2-4.406-4.625 0-.333.083-.666.166-1 .25-1.166.834-2.333 1.917-2.917.75-.417 1.667-.583 2.542-.583 2.333 0 4.167 2.167 4.167 4.5 0 2.5-1.875 4.834-5.167 4.834-1.042 0-2-.334-2.833-.834-.083 0-.25.083-.25.25-.292.958-.417 1.708-.417 2.25C13.75 23.666 18 21.667 21.5 17.833c1.166-1.333 2-3 2-4.916 0-3.625-3.333-6.584-7.5-6.584z" />
+                </svg></a>
+                <a href="#" class="text-white hover:text-gray-200"><svg
+                        class="h-6 w-6 fill-current"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 0C5.373 0 0 5.373 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.627-5.373-12-12-12zm6.167 9h-1.333c-.167 0-.333.167-.333.333v4c0 .167.166.334.333.334h1.333c.167 0 .334-.167.334-.334v-4c0-.166-.167-.333-.334-.333zm-1.417 1.667c0 .75-.583 1.333-1.333 1.333s-1.334-.583-1.334-1.333c0-.75.584-1.334 1.334-1.334s1.333.583 1.333 1.334zm-5.916 3.5h-1.334c-.166 0-.333.167-.333.333v1.334c0 .166.167.333.333.333h1.334c.166 0 .333-.167.333-.333v-1.334c0-.166-.167-.333-.333-.333zM12 3.167c-4.416 0-8 3.584-8 8s3.584 8 8 8 8-3.584 8-8-3.584-8-8-8zm4.167 11.75h-8.334c-.183 0-.333-.15-.333-.333v-1.334c0-.184.15-.333.333-.333h8.334c.183 0 .333.149.333.333v1.334c0 .183-.15.333-.333.333z" />
+                </svg></a>
+                <a href="#" class="text-white hover:text-gray-200"><svg
+                        class="h-6 w-6 fill-current"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 0C5.383 0 0 5.383 0 12c0 5.97 3.878 11.023 9.251 12.789.675.124.92-.292.92-.65 0-.32-.012-1.174-.018-2.312-3.751.813-4.678-1.818-4.678-1.818-.633-1.617-1.548-2.048-1.548-2.048-1.267-.865.096-.846.096-.846 1.4.098 2.138 1.442 2.138 1.442 1.244 2.136 3.265 1.519 4.069 1.162.126-.896.486-1.519.884-1.865-3.096-.351-6.352-1.548-6.352-6.896 0-1.522.543-2.762 1.441-3.74-.144-.352-.625-1.774.136-3.692 0 0 1.167-.374 3.825 1.428 1.108-.309 2.293-.464 3.466-.469 1.174.005 2.358.16 3.466.469 2.657-1.802 3.823-1.428 3.823-1.428.762 1.918.28 3.34.136 3.692.898.978 1.44 2.218 1.44 3.74 0 5.362-3.26 6.541-6.363 6.885.501.432.946 1.285.946 2.588 0 1.87-.017 3.378-.017 3.847 0 .362.24.78.926.646C20.126 23.023 24 17.97 24 12c0-6.617-5.383-12-12-12z" />
+                </svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Goaltracker.js"></script>
+</body>
+
+</html>
