@@ -5,25 +5,25 @@
 
 body {
     background-image: url('./background.png');
-    background-size: cover; /* Ensures the image covers the entire background */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center center; /* Centers the image */
-    height: 100vh; /* Sets the body height to full viewport height */
-    margin: 0; /* Removes default margin */
-    padding: 0; /* Removes default padding */
-    font-family: Arial, sans-serif; /* Example font */
-    color: rgb(17, 12, 12); /* Text color to contrast with background image */
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center center; 
+    height: 100vh;
+    margin: 0; 
+    padding: 0; 
+    font-family: Arial, sans-serif; 
+    color: rgb(17, 12, 12); 
 }
 
 .goal-item, .achievement-item {
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    background: rgba(0, 0, 0, 0.5); 
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
 }
 
 button {
-    background-color: rgba(3, 0, 0, 0.3); /* Semi-transparent button background */
+    background-color: rgba(3, 0, 0, 0.3); 
     border: none;
     color: rgb(8, 8, 8);
     padding: 10px;
@@ -37,5 +37,5 @@ button {
 }
 
 button:hover {
-    background-color: rgba(255, 255, 255, 0.5); /* Slightly more transparent on hover */
+    background-color: rgba(255, 255, 255, 0.5); 
 }

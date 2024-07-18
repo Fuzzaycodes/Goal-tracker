@@ -1,11 +1,43 @@
 {
   "goals": [
     {
-      "id": "852c",
-      "text": "eat",
-      "dueDate": "2024-08-02",
-      "milestones": []
+      "id": "9cc4",
+      "text": "buy a car",
+      "dueDate": "2024-08-08",
+      "milestones": [
+        {
+          "text": "1",
+          "completed": true
+        }
+      ],
+      "progressPercentage": 0,
+      "completed": false
+    },
+    {
+      "id": "a01f",
+      "text": "go to mombasa",
+      "dueDate": "2024-07-25",
+      "milestones": [
+        {
+          "text": "1",
+          "completed": true
+        }
+      ],
+      "progressPercentage": 0,
+      "completed": false
+    },
+    {
+      "id": "ba80",
+      "text": "go to church",
+      "dueDate": "2024-07-20",
+      "milestones": [
+        {
+          "text": "1",
+          "completed": true
+        }
+      ],
+      "progressPercentage": 0,
+      "completed": false
     }
-  ],
-  "achievements": []
+  ]
 }

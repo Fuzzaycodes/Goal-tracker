@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Goal Tracker</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="Goaltracker.css"> <!-- Your custom styles -->
-    <!-- Include Heroicons for icons -->
+    <link rel="stylesheet" href="Goaltracker.css">
+    
     <link href="https://cdn.jsdelivr.net/npm/@heroicons/react/outline.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
@@ -35,22 +35,28 @@
         <section class="my-8">
             <div class="container mx-auto px-4">
                 <h2 class="text-2xl font-bold mb-4">Set and Edit Goals</h2>
+
                 <form id="goal-form" class="mb-4">
                     <div class="flex space-x-4">
+
                         <input type="text" id="goal-input"
                             class="w-64 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                             placeholder="Enter goal" required>
+
                         <input type="date" id="due-date"
                             class="w-48 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
                             required>
+
                         <button type="submit"
                             class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Set
                             Goal</button>
                     </div>
                 </form>
-                <div id="goal-list" class="space-y-4">
-                    <!-- Goals will be dynamically added here -->
+
+                <div id="goal-list"></div>
+                   
                 </div>
+
                 <button id="edit-goals-btn"
                     class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Edit
                     Goals</button>
@@ -58,18 +64,10 @@
         </section>
 
         <section class="my-8">
+
             <div class="container mx-auto px-4">
                 <h2 class="text-2xl font-bold mb-4">View Progress</h2>
-                <div id="milestones-container" class="mb-8">
-                    <h3 class="text-xl font-semibold mb-4">Milestones</h3>
-                    <div id="milestones-list" class="space-y-2">
-                        <label><input type="checkbox" class="milestone-checkbox"> Milestone 1</label><br>
-                        <label><input type="checkbox" class="milestone-checkbox"> Milestone 2</label><br>
-                        <label><input type="checkbox" class="milestone-checkbox"> Milestone 3</label><br>
-                    </div>
-                    <button id="update-progress-btn"
-                        class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Update
-                        Progress</button>
+               
                 </div>
                 <div id="progress-bar-container">
                     <h3 class="text-xl font-semibold mb-4">Progress Bar</h3>

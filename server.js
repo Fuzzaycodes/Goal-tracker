@@ -10,7 +10,14 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Connect to MySQL
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: err.message });
+});
+
+
+
 const sequelize = new Sequelize('goal_tracker', 'goal_user', 'password', {
   host: 'localhost',
   dialect: 'mysql'
@@ -24,7 +31,6 @@ sequelize.authenticate()
     console.error('Unable to connect to the database:', err);
   });
 
-// Define models
 const Goal = sequelize.define('Goal', {
   text: {
     type: DataTypes.STRING,
@@ -34,18 +40,8 @@ const Goal = sequelize.define('Goal', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  category: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  totalSteps: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  stepsCompleted: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
+  
+  
   milestone: {
     type: DataTypes.STRING,
     allowNull: false
@@ -72,7 +68,6 @@ const Achievement = sequelize.define('Achievement', {
   }
 });
 
-// Sync models with the database
 sequelize.sync()
   .then(() => {
     console.log('Database & tables created!');
@@ -81,8 +76,8 @@ sequelize.sync()
     console.error('Error creating database & tables:', err);
   });
 
-// Routes for Goals
-app.get('/goals', async (req, res) => {
+
+  app.get('/goals', async (req, res) => {
   try {
     const goals = await Goal.findAll();
     res.json(goals);
@@ -128,7 +123,7 @@ app.delete('/goals/:id', async (req, res) => {
   }
 });
 
-// Routes for Achievements
+
 app.get('/achievements', async (req, res) => {
   try {
     const achievements = await Achievement.findAll();
@@ -147,7 +142,7 @@ app.post('/achievements', async (req, res) => {
   }
 });
 
-// Route to fetch a random quote
+
 app.get('/random-quote', async (req, res) => {
   try {
     const response = await axios.get('https://api.quotable.io/random');
@@ -158,12 +153,12 @@ app.get('/random-quote', async (req, res) => {
   }
 });
 
-// Root route
+
 app.get('/', (req, res) => {
   res.send('Welcome to the Quotes and Goals App');
 });
 
-// Start the server
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
