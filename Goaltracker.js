@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const goalList = document.getElementById('goal-list');
     const progressBar = document.getElementById('progress');
     const progressText = document.getElementById('progress-text');
-    const API_URL = 'http://localhost:3000/goals'; 
+    const API_URL = 'https://my-json-server.typicode.com/Fuzzaycodes/Goal-tracker/goals'; 
 
     let goals = [];
 
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (goalInput.dataset.editingGoalId) {
                 await updateGoal(goalInput.dataset.editingGoalId, newGoal);
-                delete goalInput.dataset.editingGoalId; // Remove editing ID
+                delete goalInput.dataset.editingGoalId; 
             } else {
                 await createGoal(newGoal);
             }
