@@ -5,14 +5,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const goalList = document.getElementById('goal-list');
     const progressBar = document.getElementById('progress');
     const progressText = document.getElementById('progress-text');
-    const API_URL = 'https://my-json-server.typicode.com/Fuzzaycodes/Goal-tracker/goals'; 
+    const API_URL = 'https://my-json-server.typicode.com/Fuzzaycodes/Goal-tracker'; 
 
     let goals = [];
 
     
     loadGoals();
 
-    // Event listener for form submission
+    
     goalForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Function to render goals
     function renderGoals() {
         goalList.innerHTML = '';
         goals.forEach((goal) => {
@@ -68,7 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateOverallProgress();
     }
 
-    // Function to create a new goal on the server
     async function createGoal(goal) {
         await fetch(API_URL, {
             method: 'POST',
@@ -80,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
         loadGoals();
     }
 
-    // Function to update an existing goal on the server
     async function updateGoal(id, updatedGoal) {
         await fetch(`${API_URL}/${id}`, {
             method: 'PUT',
@@ -92,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
         loadGoals();
     }
 
-    // Function to delete a goal from the server
     async function deleteGoal(id) {
         await fetch(`${API_URL}/${id}`, {
             method: 'DELETE'
@@ -100,14 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
         loadGoals();
     }
 
-    // Function to load goals from the server
     async function loadGoals() {
         const response = await fetch(API_URL);
         goals = await response.json();
         renderGoals();
     }
 
-    // Event listener for the milestone checkbox
     goalList.addEventListener('change', async (event) => {
         if (event.target.classList.contains('milestone-checkbox')) {
             const goalId = event.target.getAttribute('data-goal-id');
@@ -122,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Event listener for adding, editing, and deleting milestones/goals
     goalList.addEventListener('click', async (event) => {
         const goalId = event.target.getAttribute('data-goal-id');
 
@@ -151,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Function to update progress
     function updateProgress(goal) {
         const totalMilestones = goal.milestones.length;
         const completedMilestones = goal.milestones.filter(m => m.completed).length;
@@ -160,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
         progressText.textContent = `${goal.progressPercentage.toFixed(0)}% complete`;
     }
 
-    // Function to update the overall progress
     function updateOverallProgress() {
         let totalMilestones = 0;
         let completedMilestones = 0;
