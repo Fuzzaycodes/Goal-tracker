@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const goalList = document.getElementById('goal-list');
     const progressBar = document.getElementById('progress');
     const progressText = document.getElementById('progress-text');
-    const API_URL = 'https://my-json-server.typicode.com/Fuzzaycodes/Goal-tracker/Goals'; 
+    const API_URL = 'https://my-json-server.typicode.com/Fuzzaycodes/Goal-tracker'; 
 
     let goals = [];
 
